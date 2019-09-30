@@ -6,18 +6,18 @@ pipeline {
     stages {
         stage('Build') { 
             steps { 
-                sh 'make' 
+                sh 'mvn clean' 
             }
         }
         stage('Test'){
             steps {
                 sh 'make check'
-                junit 'reports/**/*.xml' 
+                junit 'reports/my-app/pom.xml' 
             }
         }
         stage('Deploy') {
             steps {
-                sh 'make publish'
+                sh 'mvn make publish'
             }
         }
     }
