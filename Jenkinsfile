@@ -11,13 +11,13 @@ pipeline {
         }
         stage('Test'){
             steps {
-             	   sh "mvn test -f my-app"
+             	   sh "mvn test"
                 junit 'reports/my-app/pom.xml' 
             }
         }
         stage('Deploy') {
             steps {
-                sh 'mvn make publish'
+                sh 'mvn publish'
             }
         }
     }
