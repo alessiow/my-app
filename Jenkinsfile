@@ -11,7 +11,7 @@ pipeline {
         }
         stage('Test'){
             steps {
-             	   sh "mvn test -f my-app/pom.xml"
+             	   sh "mvn test -f my-app"
                 junit 'reports/my-app/pom.xml' 
             }
         }
